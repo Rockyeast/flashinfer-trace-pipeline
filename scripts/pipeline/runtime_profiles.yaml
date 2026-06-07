@@ -1,0 +1,37 @@
+tp_rules:
+  model_type:
+    deepseek_v4:
+      default_tp: 8
+      leaf_token_overrides:
+        pro: 16
+  config_thresholds:
+    - name: large_moe
+      routed_experts_min: 256
+      hidden_size_min: 4096
+      tp: 8
+    - name: large_hidden
+      hidden_size_min: 8192
+      tp: 4
+  model_name_tokens:
+    - tokens: ["405b"]
+      tp: 8
+    - tokens: ["72b", "70b", "mixtral"]
+      tp: 4
+    - tokens: ["35b", "32b", "27b"]
+      tp: 2
+  default_tp: 1
+
+gpu_rules:
+  config_thresholds:
+    - name: deepseek_v4
+      model_type: deepseek_v4
+      gpu: A100-80GB
+    - name: large_moe
+      routed_experts_min: 256
+      hidden_size_min: 4096
+      gpu: A100-80GB
+  model_name_tokens:
+    - tokens: ["a3b", "moe", "mixtral", "36b", "35b", "32b", "27b"]
+      gpu: A100-80GB
+    - tokens: ["9b", "8b", "7b", "4b", "2b", "1.7b", "1.5b", "0.8b", "0.6b"]
+      gpu: L40S
