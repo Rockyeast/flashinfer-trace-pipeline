@@ -1,0 +1,52 @@
+# Python / editor caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments and Codex state
+.venv/
+.codex/
+
+# Runtime outputs
+logs/
+tmp/
+runs/
+reports/
+promote_reports/
+probe_runs/
+
+# Reviewed run roots keep small audit inputs in git, but not generated payloads.
+runs/**/raw/
+runs/**/output/workloads/
+runs/**/output/blob/
+runs/**/reports/official_validate_artifacts/
+runs/**/modal_run/
+runs/**/collect/
+runs/**/collect_resanitized/
+runs/**/dataset/
+runs/**/official_validate/
+runs/**/validate/
+
+# Large generated dataset artifacts
+blob/
+*.safetensors
+workloads/
+traces/
+
+# Local backup/archive folders
+_local_archive/
+.git-hf-backup/
+# Local agent inputs and meeting notes
+agent_inputs/
+docs/redesign_status.md
+docs/status_report.md
+docs/mentor_feedback_roadmap.md
+docs/onboard-model-proposal-SKILL.zh.md
+docs/录音 (40).txt
+docs/用户操作手册.md
+docs/重构状态.md
+docs/学长反馈路线图.md
+docs/简历/
+docs/重构可视化.html
